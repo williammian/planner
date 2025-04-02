@@ -1,0 +1,32 @@
+version: '3.0'
+services:
+
+  bd:
+    container_name: planner-bd
+    image: mysql:8
+    healthcheck:
+      test: mysql --protocol=socket -hlocalhost -uroot -p$$MYSQL_ROOT_PASSWORD -e 'SELECT 1'
+      interval: 20s
+      timeout: 10s
+      retries: 120
+    environment:
+      MYSQL_ROOT_PASSWORD: "root123"
+      MYSQL_USER: "user"
+      MYSQL_PASSWORD: "user123"
+      MYSQL_DATABASE: "planner"
+      MYSQL_ROOT_HOST: "%"
+    ports:
+      - 3307:3306
+    volumes:
+      - planner_data:/var/lib/mysql
+
+  adminer:
+    container_name: planner-adminer
+    image: adminer
+    restart: always
+    ports:
+      - 13307:8080
+      
+volumes:
+  planner_data:
+    driver: local

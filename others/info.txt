@@ -1,0 +1,14 @@
+JDK 17
+
+IntelliJ
+
+MySQL 8.3.0
+Public Key Retrieval = true
+
+Node.js 20.11.0 LTS
+
+
+https://gitlab.com/udemy-spring-react
+
+planner
+planner-front
