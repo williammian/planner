@@ -24,10 +24,17 @@ npm run build
 
 react-router-dom: Biblioteca para roteamento no React, permitindo navegação entre páginas em um aplicativo SPA (Single Page Application).
 @types/react-router-dom: Tipagens para o react-router-dom, usadas principalmente em projetos TypeScript para melhor suporte de autocomplete e verificação de tipos.
+
+npm install react-router-dom @types/react-router-dom 
+
+-----------------------------------
+
 react-bootstrap: Biblioteca que integra os componentes do framework Bootstrap ao React, tornando mais fácil a criação de interfaces responsivas.
 bootstrap: Framework CSS que fornece estilos e componentes prontos para uso.
 
-npm install react-router-dom @types/react-router-dom react-bootstrap bootstrap
+npm install react-bootstrap
+
+npm install bootstrap
 
 ----------------------------------
 

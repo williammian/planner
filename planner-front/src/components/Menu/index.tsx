@@ -5,7 +5,7 @@ const Menu = () => {
     return (
         <Navbar bg="dark" variant="dark" expand="lg" className="mb-1">
             <Container>
-                <Navbar.Brand href={PAGE.ROOT}>Agenda</Navbar.Brand>
+                <Navbar.Brand href={PAGE.ROOT}>Planner</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
