@@ -1,0 +1,79 @@
+React Bootstrap
+
+https://react-bootstrap.netlify.app/
+
+-----------------------------------
+
+Criando o projeto
+
+npx create-react-app planner-front --template=typescript
+
+------------------------------------
+
+Iniciando o projeto em desenvolvimento (roda em http://localhost:3000)
+
+npm start 
+
+-----------------------------------
+
+Criando os arquivo para a produção (na pasta build/)
+
+npm run build
+
+----------------------------------
+
+react-router-dom: Biblioteca para roteamento no React, permitindo navegação entre páginas em um aplicativo SPA (Single Page Application).
+@types/react-router-dom: Tipagens para o react-router-dom, usadas principalmente em projetos TypeScript para melhor suporte de autocomplete e verificação de tipos.
+react-bootstrap: Biblioteca que integra os componentes do framework Bootstrap ao React, tornando mais fácil a criação de interfaces responsivas.
+bootstrap: Framework CSS que fornece estilos e componentes prontos para uso.
+
+npm install react-router-dom @types/react-router-dom react-bootstrap bootstrap
+
+----------------------------------
+
+O Axios é um cliente HTTP baseado em promises para o navegador e para o Node.js. 
+Ele é usado para fazer requisições HTTP para APIs, como GET, POST, PUT, DELETE, entre outras.
+
+npm install axios
+
+Caso esteja usando TypeScript, você pode instalar as tipagens com:
+
+npm install @types/axios
+
+------------------------------------
+
+O date-fns é uma biblioteca moderna e eficiente para trabalhar com datas, oferecendo várias funções para formatação, 
+cálculo e manipulação de datas sem modificar objetos Date originais.
+
+npm install date-fns
+
+---------------------------------------
+
+bibliotecas relacionadas ao uso de componentes estilizados e ícones no React
+
+react-bootstrap: Biblioteca que traz os componentes do Bootstrap adaptados para React.
+@fortawesome/react-fontawesome: Biblioteca que integra os ícones do Font Awesome ao React.
+@fortawesome/free-solid-svg-icons: Pacote específico de ícones sólidos do Font Awesome (ícones preenchidos).
+
+npm install react-bootstrap @fortawesome/react-fontawesome @fortawesome/free-solid-svg-icons
+
+------------------------------------------
+
+biblioteca react-spinners fornece spinners animados para React
+
+npm install react-spinners
+
+---------------------------------------------
+
+biblioteca react-infinite-scroll-component, que permite implementar scroll infinito em aplicações React. 
+Isso é útil para carregar mais conteúdo conforme o usuário rola a página, economizando recursos ao carregar apenas o necessário.
+
+npm install react-infinite-scroll-component
+
+------------------------------------------
+
+biblioteca react-responsive permite criar componentes responsivos no React com base no tamanho da tela ou outras media queries
+
+npm install react-responsive
+
+-------------------------------------------

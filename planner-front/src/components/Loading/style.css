@@ -1,0 +1,22 @@
+.loading-overlay {
+    /* Define a posição fixa da sobreposição */
+    position: fixed;
+    /* Define que a sobreposição começa no canto esquerdo da janela */
+    left: 0;
+    /* Define que a largura da sobreposição é igual à largura da janela */
+    width: 100%;
+    /* Define que a altura da sobreposição é igual à altura da janela */
+    height: 100%;
+    /* Define o fundo da sobreposição como uma cor branca semi-transparente */
+    background: rgba(255, 255, 255, 0.8);
+    /* Define o layout flexível para alinhar os elementos filhos */
+    display: flex;
+    /* Centraliza os elementos filhos horizontalmente */
+    justify-content: center;
+    /* Centraliza os elementos filhos verticalmente */
+    align-items: center;
+    /* Define que eventos do mouse devem ser capturados pela sobreposição */
+    pointer-events: auto;
+    /* Define a ordem de empilhamento da sobreposição */
+    z-index: 1000;
+}

@@ -1,6 +1,9 @@
 planner-api/build/
 planner-api/.gradle/
 
+planner-front/node_modules/
+planner-front/build/
+
 
 target/
 !.mvn/wrapper/maven-wrapper.jar
