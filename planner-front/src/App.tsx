@@ -5,6 +5,7 @@ import Menu from './components/Menu';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import FormRecord from './containers/Home/FormRecord';
+import { PAGE } from './constants';
 
 function App() {
   return (
@@ -12,8 +13,8 @@ function App() {
       <Menu />
       <Router>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path='/record' element={<FormRecord />} />
+          <Route path={PAGE.ROOT} element={<Home />} />
+          <Route path={PAGE.RECORD} element={<FormRecord />} />
         </Routes>
       </Router>
     </>

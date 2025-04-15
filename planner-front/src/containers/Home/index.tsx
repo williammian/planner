@@ -11,13 +11,10 @@ import { useLocation } from "react-router-dom";
 import { RecordProvider, useRecord } from "../../context/RecordProvider";
 
 const Home = () => {
-    const {error, setError} = useRecord();
+    
     const [loading, setLoading] = useState(false);
     const [recordResponse, setRecordResponse] = useState<RecordResponse>();
     const [page, setPage] = useState(0);
-    const [showConfirmation, setShowConfirmation] = useState<boolean>(false);
-    const [confirmMessage, setConfirmMessage] = useState<string>("");
-    const [functionConfirm, setFunctionConfirm] = useState<() => void>(() => defaultFunction);
     const defaultFilter: RecordRequest = {
         service: '',
         customer: '',
@@ -30,7 +27,9 @@ const Home = () => {
         size: 10    
     }
     const [request, setRequest] = useState<RecordRequest>(defaultFilter);
+
     const { state } = useLocation();
+    const {error, setError} = useRecord(); //useContext
 
     useEffect(() => {
         if(state) {
@@ -82,10 +81,6 @@ const Home = () => {
         await findByFilter(request);
     }
 
-    function defaultFunction() {
-        setShowConfirmation(false);
-    }
-
     const cleanFields = () => {
         setRequest(defaultFilter);
     }
@@ -94,7 +89,7 @@ const Home = () => {
         <Container>
             {loading && <Loading loading={loading}/>}
             {error && <Alert variant="danger">{error}</Alert>}
-            <Confirmation title={confirmMessage} show={showConfirmation} functionConfirm={functionConfirm} functionCancel={defaultFunction}/>
+            <Confirmation />
             <Row className="justify-content-md-center">
                 <Col xs lg="12" className="mb-3">
                     <DesktopTable 
@@ -103,9 +98,6 @@ const Home = () => {
                         setPage={setPage} 
                         done={done} 
                         cancel={cancel}
-                        setShowConfirmation={setShowConfirmation} 
-                        setFunctionConfirm={setFunctionConfirm}
-                        setConfirmMessage={setConfirmMessage}
                         request={request}
                         setRequest={setRequest}
                         findByFilter={findByFilter}
@@ -117,9 +109,6 @@ const Home = () => {
                         setPage={setPage} 
                         done={done} 
                         cancel={cancel}
-                        setShowConfirmation={setShowConfirmation} 
-                        setFunctionConfirm={setFunctionConfirm}
-                        setConfirmMessage={setConfirmMessage}
                         request={request}
                         setRequest={setRequest}
                         findByFilter={findByFilter}

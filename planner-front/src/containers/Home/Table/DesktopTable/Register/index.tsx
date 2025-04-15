@@ -1,19 +1,16 @@
 import { Button } from "react-bootstrap";
 import { Record, RecordRequest } from "../../../../../api/record/model";
 import { formatDate, formatTime } from "../../../../../util/date";
-import { Dispatch, SetStateAction } from "react";
 import { faCheck, faPen, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
 import { PAGE } from "../../../../../constants";
+import { useRecord } from "../../../../../context/RecordProvider";
 
 interface Props {
     record: Record,
     done: (record: Record) => void
     cancel: (record: Record) => void,
-    setShowConfirmation: Dispatch<SetStateAction<boolean>>,
-    setConfirmMessage: Dispatch<SetStateAction<string>>,
-    setFunctionConfirm: Dispatch<SetStateAction<() => void>>,
     request: RecordRequest
 }
 
@@ -21,12 +18,15 @@ const Register = ({
     record, 
     done, 
     cancel,
-    setShowConfirmation, 
-    setFunctionConfirm, 
-    setConfirmMessage,
     request
  } : Props) => {
     const navigate = useNavigate();
+
+    const {
+        setConfirmMessage,
+        setFunctionConfirm,
+        setShowConfirmation
+    } = useRecord();
 
     const handleDone = () => {
         setConfirmMessage(`Concluir ${record.service}?`)

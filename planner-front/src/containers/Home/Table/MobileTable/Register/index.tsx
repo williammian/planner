@@ -2,20 +2,17 @@ import { Button, Card, ListGroup } from "react-bootstrap";
 import { formatDate, formatTime } from "../../../../../util/date";
 import { Record, RecordRequest } from "../../../../../api/record/model";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck, faPen, faTrash } from "@fortawesome/free-solid-svg-icons";
-import { Dispatch, SetStateAction } from "react";
+import { faCheck, faPen, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import { PAGE } from "../../../../../constants";
 
 import './style.css';
+import { useRecord } from "../../../../../context/RecordProvider";
 
 interface Props {
     record: Record;
     done: (record: Record) => void,
     cancel: (record: Record) => void,
-    setShowConfirmation: Dispatch<SetStateAction<boolean>>,
-    setFunctionConfirm: Dispatch<SetStateAction<() => void>>,
-    setConfirmMessage: Dispatch<SetStateAction<string>>,
     removeRecord: (record: Record) => void,
     request: RecordRequest
 }
@@ -24,13 +21,16 @@ const Register = ({
     record, 
     done, 
     cancel, 
-    setShowConfirmation, 
-    setConfirmMessage,
-    setFunctionConfirm,
     removeRecord,
     request
 } : Props) => {
     const navigate = useNavigate();
+
+    const {
+        setConfirmMessage,
+        setFunctionConfirm,
+        setShowConfirmation
+    } = useRecord();
 
     const handleDone = () => {
         setConfirmMessage(`Concluir ${record.service}?`)
@@ -78,7 +78,7 @@ const Register = ({
                         <span>
                             <Button variant="outline-success" size="sm" onClick={() => handleDone()}><FontAwesomeIcon icon={faCheck} /></Button>{' '}
                             <Button variant="outline-warning" size="sm" onClick={() => handleEdit()}><FontAwesomeIcon icon={faPen} /></Button>{' '}
-                            <Button variant="outline-danger" size="sm" onClick={() => handleCancel()}><FontAwesomeIcon icon={faTrash} /></Button>
+                            <Button variant="outline-danger" size="sm" onClick={() => handleCancel()}><FontAwesomeIcon icon={faXmark} /></Button>
                         </span>
                     }
                 </Card.Title>

@@ -18,9 +18,6 @@ interface Props {
     setPage: Dispatch<SetStateAction<number>>,
     done: (record: Record) => void,
     cancel: (record: Record) => void,
-    setShowConfirmation: Dispatch<SetStateAction<boolean>>,
-    setConfirmMessage: Dispatch<SetStateAction<string>>,
-    setFunctionConfirm: Dispatch<SetStateAction<() => void>>,
     request: RecordRequest,
     setRequest: Dispatch<SetStateAction<RecordRequest>>,
     findByFilter: (filter: RecordRequest) => void,
@@ -33,9 +30,6 @@ const MobileTable = ({
     setPage, 
     done, 
     cancel, 
-    setShowConfirmation, 
-    setConfirmMessage,
-    setFunctionConfirm,
     request,
     setRequest,
     findByFilter,
@@ -122,9 +116,6 @@ const MobileTable = ({
                                     record={reg} 
                                     done={done} 
                                     cancel={cancel}
-                                    setShowConfirmation={setShowConfirmation} 
-                                    setConfirmMessage={setConfirmMessage}
-                                    setFunctionConfirm={setFunctionConfirm}
                                     removeRecord={removeRecord}
                                     request={request}
                                 />

@@ -2,16 +2,40 @@ import { Dispatch, ReactNode, SetStateAction, createContext, useContext, useStat
 
 interface RecordContextProps {
     error?: string,
-    setError: Dispatch<SetStateAction<string>>
+    setError: Dispatch<SetStateAction<string>>,
+    showConfirmation: boolean,
+    setShowConfirmation: Dispatch<SetStateAction<boolean>>,
+    confirmMessage: string,
+    setConfirmMessage: Dispatch<SetStateAction<string>>,
+    functionConfirm: () => void,
+    setFunctionConfirm: Dispatch<SetStateAction<() => void>>,
+    defaultFunction: () => void
 }
 
 const RecordContext = createContext<RecordContextProps | undefined>(undefined);
 
 export const RecordProvider = ({ children } : { children : ReactNode}) => {
     const [error, setError] = useState<string>("");
+    const [showConfirmation, setShowConfirmation] = useState<boolean>(false);
+    const [confirmMessage, setConfirmMessage] = useState<string>("");
+    const [functionConfirm, setFunctionConfirm] = useState<() => void>(() => defaultFunction);
+
+    function defaultFunction() {
+        setShowConfirmation(false);
+    }
 
     return (
-        <RecordContext.Provider value={{ error, setError }}>
+        <RecordContext.Provider value={{ 
+            error, 
+            setError,
+            showConfirmation,
+            setShowConfirmation,
+            confirmMessage,
+            setConfirmMessage,
+            functionConfirm,
+            setFunctionConfirm,
+            defaultFunction
+        }}>
             { children }
         </RecordContext.Provider>
     )

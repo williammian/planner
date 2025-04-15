@@ -1,3 +1,15 @@
+export interface RecordRequest {
+    service?: string,
+    customer?: string,
+    location?: string,
+    initialDate?: string,
+    finalDate?: string,
+    done: boolean,
+    canceled: boolean,
+    page: number,
+    size: number
+}
+
 export interface RecordResponse {
     content: Record[],
     totalPages: number,
@@ -12,16 +24,4 @@ export interface Record {
     dateTime: string,
     done: boolean,
     canceled: boolean
-}
-
-export interface RecordRequest {
-    service?: string,
-    customer?: string,
-    location?: string,
-    initialDate?: string,
-    finalDate?: string,
-    done: boolean,
-    canceled: boolean,
-    page: number,
-    size: number
 }

@@ -14,9 +14,6 @@ interface Props {
     setPage: Dispatch<SetStateAction<number>>,
     done: (record: Record) => void,
     cancel: (record: Record) => void,
-    setShowConfirmation: Dispatch<SetStateAction<boolean>>,
-    setConfirmMessage: Dispatch<SetStateAction<string>>,
-    setFunctionConfirm: Dispatch<SetStateAction<() => void>>,
     request: RecordRequest,
     setRequest: Dispatch<SetStateAction<RecordRequest>>,
     findByFilter: (filter: RecordRequest) => void,
@@ -29,17 +26,14 @@ const DesktopTable = ({
     setPage, 
     done, 
     cancel,
-    setShowConfirmation, 
-    setConfirmMessage, 
-    setFunctionConfirm,
     request,
     setRequest,
     findByFilter,
     cleanFields
 } : Props) => {
-    const navigate = useNavigate();
-
     const [totalPages, setTotalPages] = useState(0);
+    
+    const navigate = useNavigate();
 
     useEffect(() => {
         setTotalPages(recordResponse ? recordResponse.totalPages : 0);
@@ -179,9 +173,6 @@ const DesktopTable = ({
                                 record={record} 
                                 done={done} 
                                 cancel={cancel}
-                                setShowConfirmation={setShowConfirmation} 
-                                setConfirmMessage={setConfirmMessage}
-                                setFunctionConfirm={setFunctionConfirm}
                                 request={request}
                             />
                         ))
